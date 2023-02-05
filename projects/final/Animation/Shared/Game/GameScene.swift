@@ -34,6 +34,7 @@ import MetalKit
 
 struct GameScene {
     var toy = Model(name: "toy_drummer_idle.usdz")
+    var fish = Model(name: "Clown_Fish_Low_Poly_Animated.usdz")
   lazy var skeleton: Model = {
     Model(name: "skeletonWave.usda")
   }()
@@ -57,12 +58,16 @@ struct GameScene {
     camera.target = [0, 1, 0]
     camera.distance = defaultDistance
     camera.transform = defaultView
-    models = [ground, skeleton,toy]
+    models = [ground, skeleton,toy,fish]
     skeleton.rotation.y = .pi
       skeleton.position.x = 1
       toy.scale = 0.1
       toy.rotation.y = Float.pi
       toy.position.x = -1
+      fish.position.x = 0
+      fish.scale = 0.05
+      fish.rotation = [.pi/2,0,.pi]
+      fish.position.y = 1
       
   }
 
