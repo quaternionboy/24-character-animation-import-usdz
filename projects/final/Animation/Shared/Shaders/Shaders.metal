@@ -48,20 +48,20 @@ vertex VertexOut vertex_main(
   float4 position = in.position;
   float4 normal = float4(in.normal, 0);
 
-  if (hasSkeleton) {
-    float4 weights = in.weights;
-    ushort4 joints = in.joints;
-    position =
-        weights.x * (jointMatrices[joints.x] * position) +
-        weights.y * (jointMatrices[joints.y] * position) +
-        weights.z * (jointMatrices[joints.z] * position) +
-        weights.w * (jointMatrices[joints.w] * position);
-    normal =
-        weights.x * (jointMatrices[joints.x] * normal) +
-        weights.y * (jointMatrices[joints.y] * normal) +
-        weights.z * (jointMatrices[joints.z] * normal) +
-        weights.w * (jointMatrices[joints.w] * normal);
-  }
+//  if (hasSkeleton) {
+//    float4 weights = in.weights;
+//    ushort4 joints = in.joints;
+//    position =
+//        weights.x * (jointMatrices[joints.x] * position) +
+//        weights.y * (jointMatrices[joints.y] * position) +
+//        weights.z * (jointMatrices[joints.z] * position) +
+//        weights.w * (jointMatrices[joints.w] * position);
+//    normal =
+//        weights.x * (jointMatrices[joints.x] * normal) +
+//        weights.y * (jointMatrices[joints.y] * normal) +
+//        weights.z * (jointMatrices[joints.z] * normal) +
+//        weights.w * (jointMatrices[joints.w] * normal);
+//  }
   VertexOut out {
     .position = uniforms.projectionMatrix * uniforms.viewMatrix
                   * uniforms.modelMatrix * position,
